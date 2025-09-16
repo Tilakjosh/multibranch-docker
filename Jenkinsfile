@@ -14,11 +14,13 @@ pipeline {
         }
         stage('push') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub') {
-                sh "docker push shaikmustafa/paytm:movie"
+                script {
+                  withDockerRegistry(credentialsId: 'dockerhub') {
+                    sh "docker push shaikmustafa/paytm:bus"
             }
         }
     }
+        }
         
         stage ("Deploy") {
             steps {
